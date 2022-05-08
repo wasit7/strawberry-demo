@@ -37,4 +37,9 @@ class OrderItem(models.Model):
     item = models.ForeignKey( Item, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     def __str__(self):
-        return "profile:%s, item:%s, unit_price:%s quantity: %s %s"%(self.profile.name,self.item, self.item.unit_price, self.quantity, self.item.unit)
+        return "profile:%s, item:%s, unit_price:%s quantity: %s %s"%(
+            self.profile.name,self.item, self.item.unit_price, self.quantity, self.item.unit)
+
+class Fruit(models.Model):
+    name = models.CharField(max_length=20)
+    color = models.CharField(max_length=20)

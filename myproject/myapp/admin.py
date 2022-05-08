@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from myapp.models import Profile, Item, OrderItem
+from .models import Profile, Item, OrderItem, Fruit
 
 class ProfileAdmin(admin.ModelAdmin):
     pass
@@ -15,4 +15,9 @@ class OrderItemAdmin(admin.ModelAdmin):
     list_display = ('id','profile','item','quantity')
     list_display_links = ('id',)
     list_editable = ('item','quantity')
+
+class FruitAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Fruit, FruitAdmin)
+
 admin.site.register(OrderItem, OrderItemAdmin)
