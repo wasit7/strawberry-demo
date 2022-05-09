@@ -29,5 +29,6 @@ class OrderItem:
 
 @strawberry_django.type(models.Fruit)
 class Fruit:
+    id: auto
     name: str
     color: str
