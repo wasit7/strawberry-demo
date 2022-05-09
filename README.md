@@ -23,8 +23,9 @@ $python manage.py migrate
 $python manage.py createsuperuser
 $python manage.py runserver
 ```
-# /myapp/models.py
+# models.py
 ```python
+# /myapp/models.py
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
@@ -50,9 +51,9 @@ class Fruit(models.Model):
     color = models.CharField(max_length=20)
 ```
 
-# add /myapp/types.py
+# add types.py
 ```python
-# types.py
+# /myapp/types.py
 import strawberry_django
 from . import models
 from strawberry_django import auto
@@ -88,9 +89,9 @@ class Fruit:
     color: str
 ```
 
-# add /myapp/shema.py
+# add shema.py
 ```python
-# schema.py
+# /myapp/schema.py
 import strawberry
 import strawberry_django
 from typing import List
@@ -108,9 +109,9 @@ class Query:
 schema = strawberry.Schema(query=Query)
 ```
 
-# add /myapp/urls.py
+# add urls.py
 ```python
-# urls.py
+# /myapp/urls.py
 from django.urls import include, path
 from strawberry.django.views import AsyncGraphQLView
 from .schema import schema
